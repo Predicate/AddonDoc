@@ -305,7 +305,7 @@ makepathexist(opts.o)
 
 if GRAPHVIZ then
 	--generate dependency graph
-	local f = io.popen("ccomps -x | dot | gvpack | neato -n2 -Tpng -o "..opts.o.."addons.png", "w")
+	local f = io.popen("ccomps -x | dot | gvpack | neato -n2 -Tsvg -o "..opts.o.."addons.svg", "w")
 	f:write([[
 	digraph addons {
 		graph [bgcolor=transparent]
@@ -313,7 +313,7 @@ if GRAPHVIZ then
 		edge [dir=back, color=gray]
 	]])
 	for i, name in ipairs(addons) do
-		f:write('\t"', name, '"', addons[name].tocdata.LoadOnDemand == 1 and " [color=blue]\n" or "\n")
+		f:write('\t"', name, '"', ' [URL="' .. name .. '/index.html" target="_parent"' .. (addons[name].tocdata.LoadOnDemand == 1 and ", color=blue]\n" or "]\n"))
 	end
 
 	--TOC fields that generate graph edges, and the extra attributes for their edge types

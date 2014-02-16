@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div id="center">
-			<a href="addons.png"><img src="addons.png" alt="addon graph"/></a>
+			<object type="image/svg+xml" data="addons.svg"></object>
 			<h2>Addons<%=author and " by "..author or ""%></h2>
 			<table class="list">
 				<tr>
