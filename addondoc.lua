@@ -305,7 +305,7 @@ makepathexist(opts.o)
 
 if GRAPHVIZ then
 	--generate dependency graph
-	local f = io.popen("ccomps -x | dot | gvpack | neato -n2 -Tsvg -o "..opts.o.."addons.svg", "w")
+	local f = io.popen('ccomps -x | dot | gvpack | neato -n2 -Tsvg -o "'..opts.o..'addons.svg"', "w")
 	f:write([[
 	digraph addons {
 		graph [bgcolor=transparent]
