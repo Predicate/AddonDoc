@@ -51,7 +51,7 @@ local parse do
 			field = kvhandler,
 			param = kvhandler,
 			release = singlehandler,
-			returns = multihandler,
+			["return"] = multihandler,
 			see = multihandler,
 			usage = multihandler,
 		}

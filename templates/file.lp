@@ -50,10 +50,10 @@
 					<%end%>
 				</ul>
 				<%end%>
-				<%if block.ret then%>
+				<%if block["return"] then%>
 				<h4>Returns</h4>
 				<ol>
-					<%for _, ret in ipairs(block.ret) do%>
+					<%for _, ret in ipairs(block["return"]) do%>
 					<li><%= ret %></li>
 					<%end%>
 				</ol>
