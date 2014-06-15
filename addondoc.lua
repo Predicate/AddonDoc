@@ -229,7 +229,7 @@ local opts, todoc = {}, {} do
 			todoc[#todoc+1] = arg[i]
 		end
 	end
-	
+
 	local function assertpathopt(opt, message)
 		assert(opts[opt], message)
 		if not opts[opt]:match("/$") then
@@ -313,15 +313,15 @@ if GRAPHVIZ then
 		edge [dir=back, color=gray]
 	]])
 	for i, name in ipairs(addons) do
-		f:write('\t"', name, '"', ' [URL="' .. name .. '/index.html" target="_parent"' .. (addons[name].tocdata.LoadOnDemand == 1 and ", color=blue]\n" or "]\n"))
+		f:write('\t"', name, '"', ' [URL="' .. name .. '/index.html" target="_parent"' .. (addons[name].tocdata.LoadOnDemand == 1 and (', color=blue, tooltip="' .. name .. '"') or "") .. "]\n")
 	end
 
 	--TOC fields that generate graph edges, and the extra attributes for their edge types
 	local edgefields = {
-		Dependencies = "",
-		OptionalDeps = "[style=dashed]",
-		LoadWith = "[color=purple]",
-		LoadManagers = "[style=dashed, color=purple]",
+		Dependencies = '[tooltip="Requires"]',
+		OptionalDeps = '[style=dashed, tooltip="Optionally requires"]',
+		LoadWith = '[color=purple, tooltip="Loaded with"]',
+		LoadManagers = '[style=dashed, color=purple, tooltip="Loaded by"]',
 	}
 
 	for i, name in ipairs(addons) do
