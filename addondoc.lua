@@ -2,7 +2,7 @@
 
 local GRAPHVIZ = true --whether to generate dependency graph (requires graphviz)
 local INTERFACE = {
-	CURRENT = 60000, --current interface version. below this, addons are "out of date"
+	CURRENT = 60200, --current interface version. below this, addons are "out of date"
 	MINIMUM = 20000, --minimum required interface version. below this, addons are "incompatible"
 }
 
